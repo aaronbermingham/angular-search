@@ -11,7 +11,7 @@ private gitUrl = 'https://api.github.com/search/users?q=';
 constructor( private http: HttpClient) { }
 searchUsers(term: string): Observable<Gituser[]> {
   if (!term.trim()) {
-    // if not search term, return empty hero array.
+    // if not search term, return empty Git user array.
     return of([]);
   }
   return this.http.get<Gituser[]>(`${this.gitUrl}/?login=${+term}`).pipe(
