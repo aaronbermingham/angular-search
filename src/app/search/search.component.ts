@@ -6,8 +6,9 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
-import {SearchService} from './search.service'
+import {SearchService} from './search.service';
 
+// Gituser 'class'
 export interface Gituser {
   login: string;
   id: number;
@@ -38,7 +39,7 @@ export interface Gituser {
 })
 export class SearchComponent implements OnInit {
   users$: Observable<Gituser[]>;
-  private searchTerms = new Subject<string>();
+  private searchTerms = new Subject<string>(); // Subjects are both observers and observable
 
   constructor(private searchService: SearchService) {}
 
@@ -49,13 +50,18 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.users$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
+      /* The debounceTime operator emits the latest value and helps
+      in delaying the values transmitted by the root Observable for
+      the specified time.
+      Here, it wait 300ms after each keystroke before considering the term */
       debounceTime(300),
 
-      // ignore new term if same as previous term
+      /* ignore new term if same as previous term, Returns an observable
+       series that carries only distinguished adjacent elements according
+       to the key selector and the comparer. */
       distinctUntilChanged(),
 
-      // switch to new search observable each time the term changes
+      // RxJS operator it is widely used to get the latest value emitted by the observable
       switchMap((term: string) => this.searchService.searchUsers(term)),
     );
   }

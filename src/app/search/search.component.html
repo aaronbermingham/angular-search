@@ -1,13 +1,12 @@
 <div id="search-component">
     <h4><label for="search-box">User Search</label></h4>
-  
+
     <input #searchBox id="search-box" (input)="search(searchBox.value)" />
     <button  (click) = "search(searchBox.value)">Search</button><br>
-  
+
     <ul class="search-result">
-      <li *ngFor="let hero of users$ | async" >
+      <li *ngFor="let user of users$ | async" >
        {{user.login}}
-       {{user.id}}
       </li>
     </ul>
   </div>
