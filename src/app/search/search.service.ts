@@ -20,7 +20,7 @@ searchUsers(term: string): Observable<Gituser[]> {
     map(x => x['items']), // map transforms the object
     tap(x => x.length ? // tap performs side effects only when the Observable returned by tap is subscribed
        console.log(`found users matching "${term}"`) : // message for found users
-       console.log(`no users matching "${term}"`)), // message for unfound users
+       console.log(`no users matching "${term}"`)), // message for when user is not found
     catchError(this.handleError<Gituser[]>('searchUsers', [])) // error catching
   );
 }
