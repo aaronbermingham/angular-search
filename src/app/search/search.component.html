@@ -1,13 +1,81 @@
-<div id="search-component">
+<div class="grid-container">
+  <div class="grid-item"><div id="search-component">
     <h4><label for="search-box">User Search</label></h4>
 
     <input #searchBox id="search-box" (input)="search(searchBox.value)" />
     <button  (click) = "search(searchBox.value)">Search</button><br>
 
     <ul class="search-result">
-      <li *ngFor="let user of users$ | async" >
-       {{user.login}}
+      <li (click)="selUser(user)" *ngFor="let user of users$ | async"  > <!-- async provides subscription -->
+        {{user.login}}
       </li>
     </ul>
-  </div>
+  </div></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"><div *ngIf="gitUser" class ="details">
+    <h2>Git user details</h2>
+    <ul>
+      <li>Login: {{gitUser.login}}</li>
+      <li>ID: {{gitUser.id}}</li>
+      <li>Node ID: {{gitUser.node_id}}</li>
+      <li>Avatar URL: {{gitUser.avatar_url}}</li>
+      <li>URL: {{gitUser.url}}</li>
+      <li>HTML URL: {{gitUser.html_url}}</li>
+      <li>Followers URL: {{gitUser.followers_url}}</li>
+      <li>Following URL: {{gitUser.following_url}}</li>
+      <li>Gists URL: {{gitUser.gists_url}}</li>
+      <li>Starred URL: {{gitUser.starred_url}}</li>
+      <li>Subscriptions URL: {{gitUser.subscriptions_url}}</li>
+      <li>Organisations URL: {{gitUser.organizations_url}}</li>
+      <li>Repos URL: {{gitUser.repos_url}}</li>
+      <li>Events URL: {{gitUser.events_url}}</li>
+      <li>Received URL: {{gitUser.received_events_url}}</li>
+      <li>Type: {{gitUser.type}}</li>
+      <li>Site admin: {{gitUser.site_admin}}</li>
+      <li>Score: {{gitUser.score}}</li>
 
+    </ul>
+  </div></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+  <div class="grid-item"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--
+<div *ngIf="user" class ="details">
+  <h2>Git user details</h2>
+  <ul>
+    <li>Login: {{gitUser.login}}</li>
+    <li>ID: {{gitUser.id}}</li>
+    <li>Node ID: {{gitUser.node_id}}</li>
+    <li>{{gitUser.avatar_url}}</li>
+    <li>URL: {{gitUser.url}}</li>
+    <li>HTML URL: {{gitUser.html_url}}</li>
+    <li>Followers URL: {{gitUser.followers_url}}</li>
+    <li>Following URL: {{gitUser.following_url}}</li>
+    <li>Gists URL: {{gitUser.gists_url}}</li>
+    <li>Starred URL: {{gitUser.starred_url}}</li>
+    <li>Subscriptions URL: {{gitUser.subscriptions_url}}</li>
+    <li>Organisations URL: {{gitUser.organizations_url}}</li>
+    <li>Repos URL: {{gitUser.repos_url}}</li>
+    <li>Events URL: {{gitUser.events_url}}</li>
+    <li>Received URL: {{gitUser.received_events_url}}</li>
+    <li>Type: {{gitUser.type}}</li>
+    <li>Site admin: {{gitUser.site_admin}}</li>
+    <li>Score: {{gitUser.score}}</li>
+
+  </ul>
+  <p></p>
+</div> -->

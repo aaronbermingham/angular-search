@@ -38,5 +38,15 @@ private handleError<T>(operation = 'operation', result?: T) {
   };
 }
 
+// method to return a specific user
+getUser(login: string): Observable<Gituser> {
+  const url = `${this.gitUrl}${login}`; // url for the user
+  // gets the users url and returns it
+  return this.http.get<Gituser>(url).pipe(
+    tap(_ => console.log(`fetched user login=${login}`)),
+    catchError(this.handleError<Gituser>(`getUser login=${login}`))
+    );
+}
+
 
 }
