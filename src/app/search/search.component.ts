@@ -49,8 +49,6 @@ export interface Gitreponse {
 export class SearchComponent implements OnInit {
   users$: Observable<Gituser[]>;
   private searchTerms = new Subject<string>(); // Subjects are both observers and observable
-  searchName: string;
-  response: Gitreponse;
   gitUser: Gituser;
   private gitUrl = 'https://api.github.com/search/users?q=';
   constructor(private searchService: SearchService, private http: HttpClient) {}
@@ -78,35 +76,11 @@ export class SearchComponent implements OnInit {
     );
   }
 
-  // method to return a specific user
-  getUser(user) {
-    const url = `${this.gitUrl}${user}`; // url for the user
-    // gets the users url and returns it
-    return this.http.get(url).pipe(
-      tap(_ => console.log(`fetched user login=${user.login}`))
-    ).subscribe(v => console.log(v));
-  }
-
+// Method to select a user from the search options
   selUser(gitUser) {
     console.log(gitUser);
     this.gitUser = gitUser;
     console.log(this.gitUser.login);
   }
 
-  /*
-  getUser(searchName) {
-    this.http.get('https://api.github.com/search/users?q=' + this.searchName)
-      .subscribe((response: Gitreponse) => {
-        this.response = response;
-        console.log(this.response.items[0].login);
-      });
-    console.log(this.searchName);
-  }
-
-  selUser(gitUser) {
-    console.log(gitUser);
-    this.gitUser = gitUser;
-    console.log(this.gitUser.login);
-  }
-*/
 }
