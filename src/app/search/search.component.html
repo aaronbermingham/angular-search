@@ -17,6 +17,13 @@
   <div *ngIf="gitUser" class = "col-8" id ="details">
     <h2>Git user details</h2>
     <ul>
+      <div class="polaroid">
+        <img class="polaroid" style="width:100%" src="{{ gitUser.avatar_url }}" />
+        <div class="container">
+          <p>Login: {{gitUser.login}}</p>
+        </div>
+      </div>
+
       <li>Login: {{gitUser.login}}</li>
       <li>ID: {{gitUser.id}}</li>
       <li>Node ID: {{gitUser.node_id}}</li>

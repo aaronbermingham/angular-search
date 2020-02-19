@@ -32,13 +32,21 @@
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
+div.polaroid {
+  width: 30%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-bottom: 25px;
+}
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+}
 
 #search-result li {
     color: black;
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
+
     width: 195px;
     height: 25px;
     background-color: white;
@@ -47,7 +55,7 @@
   }
 
   #search-result li:hover {
-    background-color: #607D8B;
+    color: #607D8B;
   }
 
   #search-result li a {
@@ -65,14 +73,17 @@
   #search-box {
     width: 200px;
     height: 30px;
+    border-radius: 2px;
   }
 
-  #details li{
+
+
+#details li{
     list-style-type: none;
     margin-bottom: 10px;
   }
 
-#search-result li:nth-child(even){
-  background-color: gray;
-}
+
+
+
 
