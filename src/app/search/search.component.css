@@ -19,6 +19,7 @@
 
 }
 
+
 .col-1 {width: 8.33%;}
 .col-2 {width: 16.66%;}
 .col-3 {width: 25%;}
@@ -37,6 +38,7 @@ div.polaroid {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin-bottom: 25px;
+  float: right;
 }
 
 div.container {
@@ -46,7 +48,6 @@ div.container {
 
 #search-result li {
     color: black;
-
     width: 195px;
     height: 25px;
     background-color: white;
@@ -77,10 +78,14 @@ div.container {
   }
 
 
-
+#details{
+  float: right;
+}
 #details li{
+  padding-left: 50px;
     list-style-type: none;
     margin-bottom: 10px;
+
   }
 
 
